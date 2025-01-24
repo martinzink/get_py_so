@@ -2,7 +2,7 @@ import sysconfig, os, glob
 
 v = sysconfig.get_config_vars();
 
-so_paths = glob.glob(f"{v['LIBDIR']}/**/***{v['LDLIBRARY']}*")
+so_paths = glob.glob(f"{v['LIBDIR']}/**{v['LDLIBRARY']}*", recursive=True)
 print(so_paths)
 for so_path in so_paths:
     print(so_path)

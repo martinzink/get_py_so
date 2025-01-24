@@ -1,7 +1,7 @@
 import sysconfig, os, glob
 
 v = sysconfig.get_config_vars();
-possible_dirs_between = ['', 'x86_64-linux-gnu', 'aarch64-linux-gnu']
+possible_dirs_between = ['']
 fpaths = [os.path.join(v['LIBDIR'], pdir, v['LDLIBRARY']) for pdir in possible_dirs_between]
 print(fpaths)
 for fpath in fpaths:

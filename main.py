@@ -1,5 +1,6 @@
 import sysconfig
 import os
+import glob
 
 v = sysconfig.get_config_vars()
 so_name = v['LDLIBRARY']
@@ -12,3 +13,6 @@ print(libdir_so)
 print(os.path.exists(libdir_so))
 print(libpl_so)
 print(os.path.exists(libpl_so))
+
+print("OLD")
+print(min(glob.glob(os.path.join(v['LIBDIR'], f"libpython{sysconfig.get_config_var('VERSION')}.so*")), key=len, default=''))
